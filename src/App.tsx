@@ -1,11 +1,12 @@
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
       <CssBaseline />
-      <Button variant="contained">Hello World</Button>
+      <Header />
       <h1>h1タグ</h1>
     </div>
   );
