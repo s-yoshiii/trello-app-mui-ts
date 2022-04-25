@@ -1,14 +1,16 @@
-import Button from "@mui/material/Button";
+import { red } from "@mui/material/colors";
 import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+
 import Header from "./components/Header";
+import { theme } from "./themes/theme";
 
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
-      <h1>h1タグ</h1>
-    </div>
+    </ThemeProvider>
   );
 }
 
