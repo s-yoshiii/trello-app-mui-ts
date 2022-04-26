@@ -1,4 +1,4 @@
-import { red } from "@mui/material/colors";
+import { Box } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 
@@ -9,7 +9,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header />
+      <Box sx={{ minHeight: "100vh", backgroundColor: "primary.light" }}>
+        <Header />
+      </Box>
     </ThemeProvider>
   );
 }

@@ -8,7 +8,7 @@ const Header: FC = () => {
         bgcolor="primary.main"
         variant="h5"
         sx={{
-          p: 2,
+          p: { xs: 2, md: 1 },
           color: "white",
           textAlign: "center",
           letterSpacing: 3,
