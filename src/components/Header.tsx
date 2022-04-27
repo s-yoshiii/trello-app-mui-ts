@@ -12,7 +12,8 @@ const Header: FC = () => {
           color: "white",
           textAlign: "center",
           letterSpacing: 3,
-          fontSize: { md: "h3.fontSize", sm: "h4.fontSize" },
+          fontSize: { md: "h4.fontSize" },
+          mb: 10,
         }}
       >
         Simple Trello
