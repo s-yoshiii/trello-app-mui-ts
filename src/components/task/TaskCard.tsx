@@ -9,7 +9,6 @@ const TaskCard: FC = () => {
   return (
     <Card variant="outlined" sx={{ width: 250, mx: 5 }}>
       <CardContent>
-        テストテスト
         <TaskCardTitle />
         <TaskCardDeleteButton />
         <TaskCardAddInput />
