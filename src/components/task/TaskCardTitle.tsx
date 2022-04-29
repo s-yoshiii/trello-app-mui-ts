@@ -1,4 +1,4 @@
-import { FormControl, TextField, Typography } from "@mui/material";
+import { FormControl, Input, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { FC, useState } from "react";
 
@@ -23,15 +23,19 @@ const TaskCardTitle: FC = () => {
   return (
     <Box component="div" onClick={handleClick}>
       {isClick ? (
-        <FormControl fullWidth component="form" onSubmit={handleSubmit}>
-          <TextField
+        <FormControl
+          fullWidth
+          component="form"
+          variant="standard"
+          onSubmit={handleSubmit}
+        >
+          <Input
             fullWidth
             autoFocus
-            id="standard-basic"
-            variant="standard"
             onChange={handleChange}
             onBlur={handleBlur}
             value={inputCardTitle}
+            inputProps={{ maxLength: 10 }}
           />
         </FormControl>
       ) : (
