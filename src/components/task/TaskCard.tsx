@@ -7,7 +7,7 @@ import TasksArea from "./TasksArea";
 
 const TaskCard: FC = () => {
   return (
-    <Card variant="outlined" sx={{ width: 250, mx: 5 }}>
+    <Card variant="outlined" sx={{ width: { xs: "100%", md: 250 } }}>
       <CardContent>
         <TaskCardTitle />
         <TaskCardDeleteButton />
