@@ -10,7 +10,6 @@ const TaskCardTitle: FC = () => {
     console.log(isClick);
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(inputCardTitle);
     setInputCardTitle(e.target.value);
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -21,7 +20,7 @@ const TaskCardTitle: FC = () => {
     setIsClick(false);
   };
   return (
-    <Box component="div" onClick={handleClick}>
+    <Box component="div" sx={{ mb: 4 }} onClick={handleClick}>
       {isClick ? (
         <FormControl
           fullWidth
