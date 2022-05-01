@@ -1,14 +1,14 @@
 import React, { FC } from "react";
+import Task from "./Task";
 type Props = {
-  inputText: string;
   taskList: { [s: string]: string }[];
 };
 const TasksArea: FC<Props> = (props) => {
-  const { inputText, taskList } = props;
+  const { taskList } = props;
   return (
     <div>
       {taskList.map((task, i) => (
-        <div key={i}>{task.text}</div>
+        <Task key={i} task={task} />
       ))}
     </div>
   );

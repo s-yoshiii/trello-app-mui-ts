@@ -19,7 +19,7 @@ const TaskCard: FC = () => {
           taskList={taskList}
           setTaskList={setTaskList}
         />
-        <TasksArea inputText={inputText} taskList={taskList} />
+        <TasksArea taskList={taskList} />
       </CardContent>
     </Card>
   );
