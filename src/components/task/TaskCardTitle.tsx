@@ -7,13 +7,12 @@ const TaskCardTitle: FC = () => {
   const [inputCardTitle, setInputCardTitle] = useState("TODAY");
   const handleClick = () => {
     setIsClick(true);
-    console.log(isClick);
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputCardTitle(e.target.value);
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault;
+    e.preventDefault();
     setIsClick(false);
   };
   const handleBlur = () => {

@@ -7,9 +7,14 @@ type Props = {
   setTaskList: Dispatch<SetStateAction<string[]>>;
 };
 const TaskCardAddInput: FC<Props> = (props) => {
+  const { inputText, setInputText, taskList, setTaskList } = props;
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault;
+    e.preventDefault();
     console.log(e);
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputText(e.target.value);
+    console.log(inputText);
   };
   return (
     <FormControl
@@ -18,7 +23,7 @@ const TaskCardAddInput: FC<Props> = (props) => {
       variant="standard"
       onSubmit={handleSubmit}
     >
-      <TextField label="Add a task" />
+      <TextField label="Add a task" onChange={handleChange} />
     </FormControl>
   );
 };
