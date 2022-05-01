@@ -7,7 +7,7 @@ import TasksArea from "./TasksArea";
 
 const TaskCard: FC = () => {
   const [inputText, setInputText] = useState("");
-  const [taskList, setTaskList] = useState<string[]>([]);
+  const [taskList, setTaskList] = useState<{ [s: string]: string }[]>([]);
   return (
     <Card variant="outlined" sx={{ width: { xs: "100%", md: 250 } }}>
       <CardContent>
@@ -19,7 +19,7 @@ const TaskCard: FC = () => {
           taskList={taskList}
           setTaskList={setTaskList}
         />
-        <TasksArea />
+        <TasksArea inputText={inputText} taskList={taskList} />
       </CardContent>
     </Card>
   );
