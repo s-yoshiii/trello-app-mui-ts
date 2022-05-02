@@ -24,7 +24,12 @@ const TaskCardAddInput: FC<Props> = (props) => {
       variant="standard"
       onSubmit={handleSubmit}
     >
-      <TextField label="Add a task" onChange={handleChange} value={inputText} />
+      <TextField
+        label="Add a task"
+        onChange={handleChange}
+        value={inputText}
+        sx={{ mb: "16px" }}
+      />
     </FormControl>
   );
 };

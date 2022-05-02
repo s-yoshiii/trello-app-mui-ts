@@ -1,3 +1,4 @@
+import { List } from "@mui/material";
 import React, { FC } from "react";
 import Task from "./Task";
 type Props = {
@@ -5,12 +6,13 @@ type Props = {
 };
 const TasksArea: FC<Props> = (props) => {
   const { taskList } = props;
+  const isTaskList: boolean = taskList.length === 0;
   return (
-    <div>
+    <>
       {taskList.map((task, i) => (
         <Task key={i} task={task} />
       ))}
-    </div>
+    </>
   );
 };
 

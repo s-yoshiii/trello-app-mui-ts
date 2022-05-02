@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-
 export const theme = createTheme({
   palette: {
     primary: {
@@ -14,4 +13,15 @@ export const theme = createTheme({
     },
   },
   spacing: 5,
+  components: {
+    MuiCardContent: {
+      styleOverrides: {
+        root: {
+          ":last-child": {
+            paddingBottom: "16px",
+          },
+        },
+      },
+    },
+  },
 });
