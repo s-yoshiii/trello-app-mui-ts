@@ -1,16 +1,21 @@
 import { List } from "@mui/material";
-import React, { FC } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 import Task from "./Task";
 type Props = {
-  taskList: { [s: string]: string }[];
+  taskList: { id: number; text: string }[];
+  setTaskList: Dispatch<SetStateAction<{ id: number; text: string }[]>>;
 };
 const TasksArea: FC<Props> = (props) => {
-  const { taskList } = props;
-  const isTaskList: boolean = taskList.length === 0;
+  const { taskList, setTaskList } = props;
   return (
     <>
       {taskList.map((task, i) => (
-        <Task key={i} task={task} />
+        <Task
+          key={i}
+          task={task}
+          taskList={taskList}
+          setTaskList={setTaskList}
+        />
       ))}
     </>
   );

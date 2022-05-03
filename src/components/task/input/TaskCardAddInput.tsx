@@ -3,15 +3,18 @@ import React, { Dispatch, FC, SetStateAction } from "react";
 type Props = {
   inputText: string;
   setInputText: Dispatch<SetStateAction<string>>;
-  taskList: { [s: string]: string }[];
-  setTaskList: Dispatch<SetStateAction<{ [s: string]: string }[]>>;
+  taskList: { id: number; text: string }[];
+  setTaskList: Dispatch<SetStateAction<{ id: number; text: string }[]>>;
 };
 const TaskCardAddInput: FC<Props> = (props) => {
   const { inputText, setInputText, taskList, setTaskList } = props;
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     //カードを追加する
-    setTaskList([...taskList, { text: inputText }]);
+    if (inputText === "") {
+      return;
+    }
+    setTaskList([...taskList, { id: taskList.length, text: inputText }]);
     setInputText("");
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -6,12 +6,17 @@ import {
   Typography,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import React, { FC } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 type Props = {
-  task: { [s: string]: string };
+  task: { id: number; text: string };
+  taskList: { id: number; text: string }[];
+  setTaskList: Dispatch<SetStateAction<{ id: number; text: string }[]>>;
 };
 const Task: FC<Props> = (props) => {
-  const { task } = props;
+  const { task, taskList, setTaskList } = props;
+  const handleDelete = (id: number) => {
+    setTaskList(taskList.filter((task) => task.id !== id));
+  };
   return (
     <Card
       variant="outlined"
@@ -28,7 +33,11 @@ const Task: FC<Props> = (props) => {
         </Typography>
       </CardContent>
       <CardActions sx={{ pr: "16px", pl: "0" }}>
-        <IconButton edge="end" aria-label="delete">
+        <IconButton
+          edge="end"
+          aria-label="delete"
+          onClick={() => handleDelete(task.id)}
+        >
           <DeleteIcon />
         </IconButton>
       </CardActions>
