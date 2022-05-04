@@ -28,7 +28,6 @@ const TasksArea: FC<Props> = (props) => {
             {provided.placeholder}
           </Box>
         )}
-        ;
       </Droppable>
     </DragDropContext>
   );
