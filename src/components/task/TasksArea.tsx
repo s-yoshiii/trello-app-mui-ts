@@ -1,17 +1,37 @@
 import { Box } from "@mui/system";
-import React, { Dispatch, FC, SetStateAction } from "react";
+import React, { Dispatch, FC, SetStateAction, useCallback } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import type {
+  DropResult,
+  DroppableProvided,
+  DraggableProvided,
+} from "react-beautiful-dnd";
 import Task from "./Task";
 type Props = {
-  taskList: { id: number; text: string }[];
-  setTaskList: Dispatch<SetStateAction<{ id: number; text: string }[]>>;
+  taskList: { id: number; draggableId: string; text: string }[];
+  setTaskList: Dispatch<
+    SetStateAction<{ id: number; draggableId: string; text: string }[]>
+  >;
 };
 const TasksArea: FC<Props> = (props) => {
   const { taskList, setTaskList } = props;
+  const handleDragEnd = useCallback(
+    (result: DropResult) => {
+      if (!result.destination) {
+        return;
+      }
+      const newState = [...taskList];
+      const [removed] = newState.splice(result.source.index, 1);
+      console.log(newState.splice(result.source.index, 1));
+      newState.splice(result.destination.index, 0, removed);
+      setTaskList(newState);
+    },
+    [taskList]
+  );
   return (
-    <DragDropContext>
-      <Droppable droppableId="droppableId">
-        {(provided) => (
+    <DragDropContext onDragEnd={handleDragEnd}>
+      <Droppable droppableId="droppableID">
+        {(provided: DroppableProvided) => (
           <Box
             component="div"
             {...provided.droppableProps}
@@ -20,6 +40,7 @@ const TasksArea: FC<Props> = (props) => {
             {taskList.map((task, i) => (
               <Task
                 key={i}
+                index={i}
                 task={task}
                 taskList={taskList}
                 setTaskList={setTaskList}

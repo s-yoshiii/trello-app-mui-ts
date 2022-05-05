@@ -3,8 +3,10 @@ import React, { Dispatch, FC, SetStateAction } from "react";
 type Props = {
   inputText: string;
   setInputText: Dispatch<SetStateAction<string>>;
-  taskList: { id: number; text: string }[];
-  setTaskList: Dispatch<SetStateAction<{ id: number; text: string }[]>>;
+  taskList: { id: number; draggableId: string; text: string }[];
+  setTaskList: Dispatch<
+    SetStateAction<{ id: number; draggableId: string; text: string }[]>
+  >;
 };
 const TaskCardAddInput: FC<Props> = (props) => {
   const { inputText, setInputText, taskList, setTaskList } = props;
@@ -14,7 +16,14 @@ const TaskCardAddInput: FC<Props> = (props) => {
     if (inputText === "") {
       return;
     }
-    setTaskList([...taskList, { id: taskList.length, text: inputText }]);
+    setTaskList([
+      ...taskList,
+      {
+        id: taskList.length,
+        draggableId: `task-${taskList.length}`,
+        text: inputText,
+      },
+    ]);
     setInputText("");
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
