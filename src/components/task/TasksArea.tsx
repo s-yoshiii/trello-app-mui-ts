@@ -1,16 +1,12 @@
 import { Box } from "@mui/system";
 import React, { Dispatch, FC, SetStateAction, useCallback } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import type {
-  DropResult,
-  DroppableProvided,
-  DraggableProvided,
-} from "react-beautiful-dnd";
+import type { DropResult, DroppableProvided } from "react-beautiful-dnd";
 import Task from "./Task";
 type Props = {
-  taskList: { id: number; draggableId: string; text: string }[];
+  taskList: { id: string; draggableId: string; text: string }[];
   setTaskList: Dispatch<
-    SetStateAction<{ id: number; draggableId: string; text: string }[]>
+    SetStateAction<{ id: string; draggableId: string; text: string }[]>
   >;
 };
 const TasksArea: FC<Props> = (props) => {
@@ -22,7 +18,6 @@ const TasksArea: FC<Props> = (props) => {
       }
       const newState = [...taskList];
       const [removed] = newState.splice(result.source.index, 1);
-      console.log(newState.splice(result.source.index, 1));
       newState.splice(result.destination.index, 0, removed);
       setTaskList(newState);
     },
@@ -30,7 +25,7 @@ const TasksArea: FC<Props> = (props) => {
   );
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <Droppable droppableId="droppableID">
+      <Droppable droppableId="droppable">
         {(provided: DroppableProvided) => (
           <Box
             component="div"

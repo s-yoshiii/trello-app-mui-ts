@@ -10,16 +10,16 @@ import React, { Dispatch, FC, SetStateAction } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import type { DraggableProvided } from "react-beautiful-dnd";
 type Props = {
-  task: { id: number; draggableId: string; text: string };
-  taskList: { id: number; draggableId: string; text: string }[];
+  task: { id: string; draggableId: string; text: string };
+  taskList: { id: string; draggableId: string; text: string }[];
   setTaskList: Dispatch<
-    SetStateAction<{ id: number; draggableId: string; text: string }[]>
+    SetStateAction<{ id: string; draggableId: string; text: string }[]>
   >;
   index: number;
 };
 const Task: FC<Props> = (props) => {
   const { task, taskList, setTaskList, index } = props;
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     setTaskList(taskList.filter((task) => task.id !== id));
   };
   return (
