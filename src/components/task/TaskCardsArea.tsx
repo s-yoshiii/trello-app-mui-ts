@@ -7,11 +7,13 @@ const TaskCardsArea: FC = () => {
   return (
     <>
       <Grid container spacing={5} px={5}>
-        <Grid item sx={{ width: { xs: "100%", sm: 250 } }}>
+        <Grid item sx={{ width: { xs: "100%", sm: 275 } }}>
           <TaskCard />
         </Grid>
+        <Grid item>
+          <AddTaskCardButton />
+        </Grid>
       </Grid>
-      <AddTaskCardButton />
     </>
   );
 };
