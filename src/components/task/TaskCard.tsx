@@ -11,7 +11,7 @@ const TaskCard: FC = () => {
     { id: string; draggableId: string; text: string }[]
   >([]);
   return (
-    <Card variant="outlined" sx={{ width: { xs: "100%", md: 250 } }}>
+    <Card variant="outlined" sx={{ width: { xs: "100%", md: 300 } }}>
       <CardContent>
         <TaskCardTitle />
         <TaskCardDeleteButton />
