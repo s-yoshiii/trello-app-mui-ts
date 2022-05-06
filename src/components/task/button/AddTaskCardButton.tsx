@@ -4,16 +4,16 @@ import React, { Dispatch, FC, SetStateAction } from "react";
 import { v4 as uuidv4 } from "uuid";
 type Props = {
   taskCardsList: { id: string; draggableId: string }[];
-  setTaskCardList: Dispatch<
+  setTaskCardsList: Dispatch<
     SetStateAction<{ id: string; draggableId: string }[]>
   >;
 };
 const AddTaskCardButton: FC<Props> = (props) => {
-  const { taskCardsList, setTaskCardList } = props;
+  const { taskCardsList, setTaskCardsList } = props;
   const addTaskCard = () => {
     const taskCardId = uuidv4();
     //タスクカードを追加する
-    setTaskCardList([
+    setTaskCardsList([
       ...taskCardsList,
       {
         id: taskCardId,
