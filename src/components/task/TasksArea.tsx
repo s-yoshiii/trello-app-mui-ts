@@ -23,7 +23,6 @@ const TasksArea: FC<Props> = (props) => {
     },
     [taskList]
   );
-  console.log(taskList);
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <Droppable droppableId="droppable">
