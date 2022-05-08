@@ -27,15 +27,16 @@ const TaskCard: FC<Props> = (props) => {
           sx={{ width: { xs: "100%", md: 300 }, position: "relative" }}
           ref={provided.innerRef}
           {...provided.draggableProps}
-          {...provided.dragHandleProps}
         >
-          <CardContent>
+          <CardContent {...provided.dragHandleProps}>
             <TaskCardTitle />
             <TaskCardDeleteButton
               taskCardsList={taskCardsList}
               setTaskCardsList={setTaskCardsList}
               taskCard={taskCard}
             />
+          </CardContent>
+          <CardContent sx={{ pt: 0 }}>
             <TaskCardAddInput
               inputText={inputText}
               setInputText={setInputText}
